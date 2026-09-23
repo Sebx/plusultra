@@ -1,0 +1,27 @@
+# Code ownership and review assignment
+
+# Default owner for everything
+* @Sebx
+
+# Doom-specific code
+doom.html @Sebx
+doom.js @Sebx
+gpu-worker.js @Sebx
+doom-source.tar.gz @Sebx
+doom-engine/ @Sebx
+doom-licenses/ @Sebx
+
+# Model and inference
+model/ @Sebx
+worker.js @Sebx
+scripts/verify-model-hashes.mjs @Sebx
+
+# Web/PWA core
+sw.js @Sebx
+app.js @Sebx
+app.css @Sebx
+
+# Documentation and configuration
+*.md @Sebx
+.github/ @Sebx
+licenses/ @Sebx
