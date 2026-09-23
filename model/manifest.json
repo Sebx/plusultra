@@ -1,0 +1,142 @@
+{
+  "id": "plusultra-gliclass-v1",
+  "source": "knowledgator/gliclass-multilang-edge",
+  "revision": "d16c08ef70547514081952104e6fc3d190d9ee39",
+  "license": "Apache-2.0",
+  "parameters": 142992642,
+  "bonsai_distilled": false,
+  "format": "ONNX opset 17; INT8 embedding lookup, FP32 encoder and scorer; no activation quantization",
+  "max_tokens": 512,
+  "max_options": 25,
+  "generated_tokens": 0,
+  "files": {
+    "model.onnx": {
+      "bytes": 277896593,
+      "sha256": "a87a8aad57b111d9fb98c46804640335ae79b15f1e38e1bbd46a5fc44dd28dfa"
+    },
+    "tokenizer.json": {
+      "bytes": 34364000,
+      "sha256": "c34bc875fad3336b9159ed3c24d64ce319a00d56edc9ff873c046a37e1c5e0de"
+    },
+    "tokenizer_config.json": {
+      "bytes": 47181,
+      "sha256": "548d38dab71ad1110e1fc13a134f0c4d3c9cd2694302d02e2dc5606fb74da0d4"
+    }
+  },
+  "calibration": {
+    "schema_version": 1,
+    "model_sha256": "a87a8aad57b111d9fb98c46804640335ae79b15f1e38e1bbd46a5fc44dd28dfa",
+    "scope": "Synthetic English support controls from Open-Jev; unvalidated outside this domain",
+    "dataset_sha256": "3217a94ee8d6bb68fd3b9553f65d0caf87c067f3c2b8a0a5569820403c0ba3a6",
+    "profiles": [
+      {
+        "question": {
+          "type": "score",
+          "instructions": "How severe is the reported issue? Use the stated functional impact and the existence of a workaround. Use no functional impact when no malfunction is described. In this synthetic control, if a broken feature is described but the availability of a workaround is explicitly unknown, the two latent possibilities (workaround exists; no workaround exists) are equally likely.",
+          "criteria": [
+            "Cosmetic; no impact to functionality",
+            "Broken or degraded feature; workaround exists",
+            "Blocking issue; no workaround exists"
+          ]
+        },
+        "temperature": 19.999999999999996,
+        "samples": 20,
+        "fit_split": "calibration",
+        "calibration_ids_sha256": "58dd8c71f1135d108fd6e03c17f8b6b6277f754ee7d8501cb5754fb5d640113c"
+      },
+      {
+        "question": {
+          "type": "choice",
+          "instructions": "Determine the broad category of this support ticket. For this controlled task, select the customer's expressly prioritized request. If two requests explicitly have equal priority, allocate equal support to their two categories. A malfunction of an existing feature is bug_report; a payment or refund request is billing; a request for absent functionality is feature_request; an access or profile request is account. Secondary context does not override an explicit priority.",
+          "criteria": {
+            "billing": "Charges, invoices, refunds, subscriptions",
+            "account": "Login, permissions, profile, security",
+            "bug_report": "The user is reporting something that is broken or producing errors",
+            "feature_request": "The user is requesting new functionality"
+          }
+        },
+        "temperature": 1.2205850374447638,
+        "samples": 20,
+        "fit_split": "calibration",
+        "calibration_ids_sha256": "d7b71f2b602930321b3ab394b85378893400b6867c6b09f9c750569d62912f54"
+      },
+      {
+        "question": {
+          "type": "score",
+          "instructions": "Churn likelihood level. This is a local ordinal intention rubric, not an empirically calibrated prediction of future churn. Evaluate the customer's stated continuation intent. If intent was explicitly withheld or not discussed, the synthetic generator has three equally likely latent intention levels.",
+          "criteria": [
+            "The customer explicitly intends to keep using the service and continue their subscription.",
+            "The customer is undecided about continuing, or makes departure conditional on whether the issue is resolved.",
+            "The customer explicitly requests cancellation or states a definite decision to stop using the service."
+          ]
+        },
+        "temperature": 0.6087042249201303,
+        "samples": 20,
+        "fit_split": "calibration",
+        "calibration_ids_sha256": "e26c1b98d40028b4aabeb183cfca6bd69d2dd7e12d0e2fd594574f179ec74d77"
+      },
+      {
+        "question": {
+          "type": "score",
+          "instructions": "How frustrated the user appears. Use the current expressed tone. For a reaction that carries no clear emotional valence, the controlled generator has two equally likely latent readings: calm or frustrated but civil. Do not infer very angry without an explicit anger signal.",
+          "criteria": [
+            "Calm, matter-of-fact",
+            "Frustrated but civil",
+            "Very angry"
+          ]
+        },
+        "temperature": 19.999999999999996,
+        "samples": 20,
+        "fit_split": "calibration",
+        "calibration_ids_sha256": "68eb5adbd473e7627190eb730a7a4786dfe7ca10c26400207bd1cea6cf5bd2a0"
+      },
+      {
+        "question": {
+          "type": "noul",
+          "instructions": "The user describes specific steps to reproduce the issue. For this controlled task, require at least two ordered user actions and the observed result. A vague report, a resolved historical issue, or an instruction to support staff is insufficient."
+        },
+        "temperature": 1.5242710256023873,
+        "samples": 20,
+        "fit_split": "calibration",
+        "calibration_ids_sha256": "afa1e7ab34a7c9b3bda4b87ef66bdfbbdb11552bd899e3c4bba065df4c2d1b6f"
+      },
+      {
+        "question": {
+          "type": "noul",
+          "instructions": "The user is explicitly asking for a refund or credit for the current issue. A question about charges, an explicit denial of wanting money back, or a mention of an already completed refund is not a current request."
+        },
+        "temperature": 0.6963826657569758,
+        "samples": 20,
+        "fit_split": "calibration",
+        "calibration_ids_sha256": "12ddf487fa7fb8ea58d4118823e3aefb3687ec7eabcd441c52cf676e1e734e29"
+      }
+    ]
+  },
+  "parts": [
+    {
+      "name": "weights-0.bin",
+      "bytes": 67108864,
+      "sha256": "e27b4d134b0ac36a73fd0f42500429a37f21d033693faa1f6e737170deee2d1e"
+    },
+    {
+      "name": "weights-1.bin",
+      "bytes": 67108864,
+      "sha256": "919dd3c0d91a4f2cba96904d4d191cd6452be34b82a6d97dcdd7fc59362a953f"
+    },
+    {
+      "name": "weights-2.bin",
+      "bytes": 67108864,
+      "sha256": "7024a75a7c7eeac85bb3a9dbdabc3963921f6a28aeddddb6d8a99fc6ff820396"
+    },
+    {
+      "name": "weights-3.bin",
+      "bytes": 67108864,
+      "sha256": "2d4852021eeedbb90196d5ab9b1da8decc5f6dd1a8d7d934470efade3e458637"
+    },
+    {
+      "name": "weights-4.bin",
+      "bytes": 9461137,
+      "sha256": "fb512e8859ef50039defc5765ca7d00985f5f041f729f4b26eb21b6d08377e67"
+    }
+  ]
+}

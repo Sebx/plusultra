@@ -1,0 +1,86 @@
+<svg viewBox="0 0 980 560" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <rect width="980" height="560" fill="#f5f4ed"/>
+
+  <!-- Title -->
+  <text x="30" y="38" font-size="20" font-weight="700" fill="#173d35">plusultra — everything runs on your device</text>
+  <text x="30" y="58" font-size="12.5" fill="#5b6b64">No servers. No API keys. The model and the game both run in the same browser tab.</text>
+
+  <!-- Left lane: Decision Lab -->
+  <text x="30" y="94" font-size="13" font-weight="700" fill="#173d35">DECISION LAB (index.html)</text>
+
+  <rect x="30" y="108" width="220" height="54" rx="10" fill="#ffffff" stroke="#dddfd4"/>
+  <text x="140" y="130" font-size="12.5" text-anchor="middle" fill="#192e29" font-weight="600">Your text + question</text>
+  <text x="140" y="148" font-size="11" text-anchor="middle" fill="#5b6b64">choice / score / noul</text>
+
+  <line x1="140" y1="162" x2="140" y2="188" stroke="#173d35" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="30" y="188" width="220" height="54" rx="10" fill="#ffffff" stroke="#dddfd4"/>
+  <text x="140" y="210" font-size="12.5" text-anchor="middle" fill="#192e29" font-weight="600">Service worker cache</text>
+  <text x="140" y="228" font-size="11" text-anchor="middle" fill="#5b6b64">app shell + model, offline-ready</text>
+
+  <line x1="140" y1="242" x2="140" y2="268" stroke="#173d35" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="30" y="268" width="220" height="54" rx="10" fill="#ffffff" stroke="#dddfd4"/>
+  <text x="140" y="290" font-size="12.5" text-anchor="middle" fill="#192e29" font-weight="600">Web Worker</text>
+  <text x="140" y="308" font-size="11" text-anchor="middle" fill="#5b6b64">ONNX Runtime · WASM</text>
+
+  <line x1="140" y1="322" x2="140" y2="348" stroke="#173d35" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="20" y="348" width="240" height="66" rx="10" fill="#173d35"/>
+  <text x="140" y="373" font-size="12.5" text-anchor="middle" fill="#ffffff" font-weight="700">GLiClass Multilang Edge</text>
+  <text x="140" y="391" font-size="11" text-anchor="middle" fill="#cfe3dc">143M params · Apache 2.0 · frozen</text>
+  <text x="140" y="406" font-size="10.5" text-anchor="middle" fill="#9fc2b6">0 tokens generated — classifies only</text>
+
+  <line x1="140" y1="414" x2="140" y2="440" stroke="#173d35" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="30" y="440" width="220" height="54" rx="10" fill="#ffffff" stroke="#dddfd4"/>
+  <text x="140" y="462" font-size="12.5" text-anchor="middle" fill="#192e29" font-weight="600">Probabilities + confidence</text>
+  <text x="140" y="480" font-size="11" text-anchor="middle" fill="#5b6b64">rendered back in your tab</text>
+
+  <!-- Divider -->
+  <line x1="345" y1="90" x2="345" y2="510" stroke="#dddfd4" stroke-width="1" stroke-dasharray="4 4"/>
+
+  <!-- Right lane: Doom loop -->
+  <text x="375" y="94" font-size="13" font-weight="700" fill="#173d35">DOOM DEMO (doom.html) — a loop, ~4x/second</text>
+
+  <rect x="375" y="112" width="230" height="58" rx="10" fill="#ffffff" stroke="#dddfd4"/>
+  <text x="490" y="134" font-size="12.5" text-anchor="middle" fill="#192e29" font-weight="600">Chocolate Doom (WASM)</text>
+  <text x="490" y="152" font-size="11" text-anchor="middle" fill="#5b6b64">Freedoom · structured game state</text>
+
+  <line x1="605" y1="141" x2="655" y2="141" stroke="#173d35" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="655" y="112" width="230" height="58" rx="10" fill="#ffffff" stroke="#dddfd4"/>
+  <text x="770" y="134" font-size="12.5" text-anchor="middle" fill="#192e29" font-weight="600">Sensors → short text</text>
+  <text x="770" y="152" font-size="11" text-anchor="middle" fill="#5b6b64">"enemy centered, no ammo…"</text>
+
+  <line x1="770" y1="170" x2="770" y2="196" stroke="#173d35" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="655" y="196" width="230" height="56" rx="10" fill="#173d35"/>
+  <text x="770" y="218" font-size="12.5" text-anchor="middle" fill="#ffffff" font-weight="700">Same frozen GLiClass model</text>
+  <text x="770" y="236" font-size="11" text-anchor="middle" fill="#cfe3dc">scores the 8 possible actions</text>
+
+  <line x1="655" y1="224" x2="605" y2="224" stroke="#173d35" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="375" y="196" width="230" height="56" rx="10" fill="#ffffff" stroke="#dddfd4"/>
+  <text x="490" y="218" font-size="12.5" text-anchor="middle" fill="#192e29" font-weight="600">Trained policy head</text>
+  <text x="490" y="236" font-size="11" text-anchor="middle" fill="#5b6b64">small linear model, on-device</text>
+
+  <line x1="490" y1="252" x2="490" y2="278" stroke="#173d35" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="375" y="278" width="510" height="58" rx="10" fill="#ffffff" stroke="#dddfd4"/>
+  <text x="630" y="300" font-size="12.5" text-anchor="middle" fill="#192e29" font-weight="600">Action: SHOOT · TURN · FORWARD · BACK · USE · DODGE</text>
+  <text x="630" y="318" font-size="11" text-anchor="middle" fill="#5b6b64">no pathfinding, no auto-aim beyond Doom's own — argmax of the trained policy</text>
+
+  <path d="M 490 336 C 490 400, 375 420, 400 141" fill="none" stroke="#173d35" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow)"/>
+  <text x="450" y="430" font-size="10.5" fill="#5b6b64">feeds back into the running game</text>
+
+  <!-- Footer note -->
+  <rect x="30" y="510" width="855" height="34" rx="8" fill="#eef0e9"/>
+  <text x="46" y="531" font-size="11.5" fill="#42544d">Both flows share one thing: the 143M-parameter model never leaves the browser, and nothing you type or observe is sent anywhere.</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L7,3 z" fill="#173d35"/>
+    </marker>
+  </defs>
+</svg>

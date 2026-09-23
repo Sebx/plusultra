@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#151713"><title>Doom · plusultra</title><link rel="stylesheet" href="/doom.css"><link rel="icon" href="/icon.svg"></head>
+<body>
+<header><a href="/" class="brand">p<span>.</span> <b>plusultra</b></a><span class="private">● No cloud · No keys</span><a href="/">Lab ↗</a></header>
+<main>
+<section class="intro"><div><p class="eyebrow">FIELD TEST / 001</p><h1>The model plays <em>Doom.</em></h1><p class="lead">The AI decides on your GPU. The game runs in your browser.</p></div><div class="spec"><strong>143M</strong><span>parameters · 0 generated tokens</span><small>312 MB AI + 31 MB Doom</small></div></section>
+<div class="toolbar"><label>AI engine <select id="backend"><option value="webgpu">WebGPU · Local GPU</option><option value="wasm">WebAssembly · Local CPU</option></select></label><button id="load" class="primary">Prepare Doom + AI <span>↓</span></button><span id="status" role="status">Ready to load</span></div>
+<section class="arena">
+<div class="game-panel">
+<div class="game-title"><span><i id="live-dot"></i> <b id="mode">WAITING</b></span><span>CHOCOLATE DOOM / FREEDOOM MAP01</span></div>
+<div class="screen"><canvas id="doom" width="640" height="480" tabindex="0" aria-label="Doom running"></canvas><div id="cover"><span class="crosshair">+</span><h2>A real game.<br>Local actions.</h2><p>Load the engine to begin.</p></div><div id="game-message" hidden></div></div>
+<div class="play-controls"><button id="play" class="primary" disabled>▶ Let the AI play</button><button id="pause" disabled>Ⅱ Pause</button><button id="reset" disabled>↻ Reset</button><button id="manual" disabled>Take control</button></div>
+<div id="manual-controls" hidden><p>Arrow keys to move · Ctrl to shoot · Space to use. You can also use these buttons.</p><div class="touch-controls"><button data-mask="4" aria-label="Turn left">↶</button><button data-mask="1" aria-label="Move forward">↑</button><button data-mask="2" aria-label="Move back">↓</button><button data-mask="8" aria-label="Turn right">↷</button><button data-mask="16" aria-label="Dodge left">←</button><button data-mask="32" aria-label="Dodge right">→</button><button data-mask="64">Shoot</button><button data-mask="128">Use</button></div></div>
+<div class="vitals"><div><span>HEALTH</span><strong id="health">—</strong></div><div><span>ARMOR</span><strong id="armor">—</strong></div><div><span>KILLS</span><strong id="kills">—</strong></div><div><span>AMMO</span><strong id="ammo">—</strong></div></div>
+</div>
+<aside>
+<div class="side-head"><p class="eyebrow">INSIDE THE ACTION</p><span id="gpu-badge">Not loaded</span></div>
+<h2 id="action">Waiting for the model</h2><p id="observation">The model receives structured game observations. It does not interpret pixels.</p>
+<div class="meters"><div><strong id="latency">—</strong><span>ms per action</span></div><div><strong id="tick-rate">—</strong><span>engine tics / s</span></div><div><strong id="actions">0</strong><span>AI actions</span></div><div><strong id="elapsed">0:00</strong><span>play time</span></div></div>
+<div class="distribution"><h3>Model options</h3><div id="probabilities"><p>The distribution will appear during play.</p></div></div>
+<p class="note">A trained policy head combines model scores with interaction, damage, blocked-movement, and melee-range memory. When out of ammo it closes the distance and switches to fists once in range. It does not calculate routes. It can make mistakes or die.</p>
+</aside>
+</section>
+<div class="under"><p id="offline">The first load needs the local files.</p><button id="download" disabled>Download measurement ↓</button><button id="benchmark" disabled>60-second test</button></div>
+<p id="error" role="alert" hidden></p>
+<details><summary>View observation, action, and execution evidence</summary><pre id="trace">No actions yet.</pre></details>
+<footer><p>Doom runs in WebAssembly with free Freedoom assets. The AI uses WebGPU when the UI shows “GPU active”; classic game rendering runs on the CPU. Doom's original aim assistance remains enabled.</p><p>Doom policy: a small linear head trained on 800 observations; validation 160/160 and held-out test 240/240, including wall recovery, dodging under fire, and closing to melee range to punch when out of ammo. Synthetic data with scope limited to this controller.</p><p>Controlled combat scenario: MAP01 with four added enemies, initial health and armor 100. This does not show that the model completes the level. Physical 4 GB mobile testing remains pending.</p><a href="/doom-source.tar.gz" download>Engine source and build</a> · <a href="/doom-licenses/THIRD_PARTY_NOTICES.md">Credits and licenses</a></footer>
+</main><script type="module" src="/doom.js"></script></body></html>

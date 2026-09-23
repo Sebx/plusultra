@@ -1,0 +1,21 @@
+{
+  "repository": "https://github.com/lukaske/jev-doom-agent",
+  "revision": "318c32a24851444c1170bf083671c38723f3a35a",
+  "engine": "Chocolate Doom 3.1.1",
+  "content": "Freedoom 0.13.0",
+  "license": "GPL-2.0-or-later engine; BSD Freedoom",
+  "files": {
+    "chocolate-doom.wasm": {
+      "bytes": 1684566,
+      "sha256": "dcb485b97d7f4ff44754f51163c38eb1cba6dc65323126c8d49a3b57eb6edfa4"
+    },
+    "chocolate-doom.js": {
+      "bytes": 188091,
+      "sha256": "f8151073eca3ed1b3b3c6dde97a83a163d5290fcb104dd897d7a837ec54bf128"
+    },
+    "chocolate-doom.data": {
+      "bytes": 28787748,
+      "sha256": "a8772e088847032510d97ba2312406a6998f21cbab44d4ff10696faa9c0ecd4b"
+    }
+  }
+}

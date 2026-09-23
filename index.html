@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#173d35" />
+    <meta
+      name="description"
+      content="Classify, score, and evaluate text on your device without generating text."
+    />
+    <title>plusultra</title>
+    <link rel="stylesheet" href="/app.css" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/"
+        ><span class="brandmark">p.</span> plus<span class="brandlocal"
+          >ultra</span
+        ></a
+      ><span class="privacy"
+        ><a href="/doom.html">Watch the AI play Doom ↗</a></span
+      >
+    </header>
+    <main>
+      <section class="intro">
+        <div>
+          <p class="eyebrow">INTELLIGENCE THAT DECIDES</p>
+          <h1>One input.<br />One clear answer.</h1>
+          <p class="lead">
+            Classify, score, and evaluate text on your device.<br />No
+            accounts and no generated text.
+          </p>
+        </div>
+        <div class="engine-card">
+          <span class="eyebrow">LOCAL ENGINE · CPU</span>
+          <h2 id="engine-status">Ready to load</h2>
+          <p id="engine-detail">
+            312 MB model and tokenizer. The browser stores them for offline use
+            when supported.
+          </p>
+          <button id="load" class="primary">
+            Load local engine <span>↓</span>
+          </button>
+          <p id="offline-status" class="small">
+            The first load needs access to the local files.
+          </p>
+        </div>
+      </section>
+      <div class="workspace-heading">
+        <h2>Evaluation lab</h2>
+        <span class="version">V0.4 · EXPERIMENTAL</span>
+      </div>
+      <section class="workspace">
+        <form id="question-form" class="input-panel">
+          <div class="panel-title">
+            <span class="step">01</span>
+            <h3>Define the input</h3>
+            <label class="preset-label"
+              >Example<select id="preset">
+                <option value="route">Route request</option>
+                <option value="tone">Measure sentiment</option>
+                <option value="refund">Detect refund request</option>
+                <option value="support">English support · calibration</option>
+              </select></label
+            >
+          </div>
+          <label for="state">Text to evaluate</label
+          ><textarea id="state" rows="5" maxlength="16000" required></textarea>
+          <div class="field-hint">
+            <span>The text stays in this browser.</span
+            ><span id="characters"></span>
+          </div>
+          <div class="type-picker" role="group" aria-label="Question type">
+            <button
+              type="button"
+              data-type="choice"
+              class="selected"
+              aria-pressed="true"
+            >
+              Choose <small>Choice</small></button
+            ><button type="button" data-type="score" aria-pressed="false">
+              Score <small>Score</small></button
+            ><button type="button" data-type="noul" aria-pressed="false">
+              Evaluate <small>Noul</small>
+            </button>
+          </div>
+          <label for="instructions">What do you want to decide</label
+          ><textarea
+            id="instructions"
+            rows="2"
+            maxlength="3000"
+            required
+          ></textarea>
+          <label for="criteria" id="criteria-label">Options</label
+          ><textarea
+            id="criteria"
+            rows="4"
+            maxlength="10000"
+            spellcheck="false"
+          ></textarea>
+          <p class="field-hint" id="criteria-help"></p>
+          <p class="limit-note">
+            Up to 512 tokens across text, instructions, and options. Oversized
+            inputs are rejected without truncation.
+          </p>
+          <button id="evaluate" class="primary evaluate" disabled>
+            Evaluate locally <span>↗</span>
+          </button>
+          <p id="error" class="error" role="alert" hidden></p>
+        </form>
+        <section class="result-panel" aria-live="polite">
+          <div class="panel-title">
+            <span class="step">02</span>
+            <h3>Read the result</h3>
+            <span id="latency" class="latency"></span>
+          </div>
+          <div id="empty" class="empty">
+            <div class="empty-icon">↗</div>
+            <h3>The answer starts here</h3>
+            <p>
+              Load the engine and evaluate text.<br />You will see its
+              distribution across the options.
+            </p>
+          </div>
+          <div id="results" hidden>
+            <p class="eyebrow" id="result-label"></p>
+            <h2 id="result-value"></h2>
+            <div id="bars"></div>
+            <div id="confidence-row" class="confidence-row">
+              <span>Distribution concentration</span
+              ><strong id="confidence"></strong>
+            </div>
+            <p class="quality-note" id="quality-note">
+              Confidence measures concentration, not correctness. The
+              probabilities are not calibrated. Review important conclusions;
+              this model can fail on negation, complex instructions, or
+              out-of-domain text.
+            </p>
+            <details>
+              <summary>View JSON input and output</summary>
+              <pre id="json-output"></pre>
+            </details>
+            <button type="button" id="download" class="secondary">
+              Download result ↓
+            </button>
+          </div>
+        </section>
+      </section>
+      <footer>
+        <span>GLiClass Multilang Edge · 143M parameters · Apache 2.0</span
+        ><span>CPU execution in your browser · 0 generated tokens</span>
+        <p>
+          Interface inspired by JEV. It is not JEV and equivalent quality has
+          not been validated. Bonsai remains a training candidate and is not
+          included in these weights. Physical 4 GB mobile testing is pending.
+        </p>
+      </footer>
+    </main>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

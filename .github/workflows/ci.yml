@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Syntax-check bundled JS
+        run: |
+          for f in app.js doom.js worker.js gpu-worker.js sw.js; do
+            echo "Checking $f"
+            node --check "$f"
+          done
+
+      - name: Verify model file integrity against model/manifest.json
+        run: node scripts/verify-model-hashes.mjs

@@ -1,0 +1,26 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Node (if you run any local tooling)
+node_modules/
+npm-debug.log*
+
+# Python (if you run the training pipeline from doom-source.tar.gz)
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Local env / secrets
+.env
+.env.*
+
+# Misc build/scratch output
+*.log
+dist/
